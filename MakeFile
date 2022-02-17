@@ -1,0 +1,25 @@
+all: gauss_thread
+
+gauss_thread: main.o array_input_th.o array_output_th.o gauss_th_po_stroke.o 
+	g++ main.o array_input_th.o array_output_th.o gauss_th_po_stroke.o -o gauss_thread -O3 -lpthread
+
+main.o: main.cpp
+	g++ -c main.cpp -O3 -lpthread
+
+array_input_th.o: array_input_th.cpp
+	g++ -c array_input_th.cpp -O3 -lpthread
+
+array_output_th.o: array_output_th.cpp
+	g++ -c array_output_th.cpp -O3 -lpthread
+
+gauss_th_po_stroke.o: gauss_th_po_stroke.cpp
+	g++ -c gauss_th_po_stroke.cpp -O3 -lpthread
+
+clean:
+	rm -rf *.o gauss_thread
+
+
+
+
+
+
